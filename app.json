@@ -1,0 +1,54 @@
+{
+    "id": "eu.jeroensomhorst.feedreader",
+    "name": {
+        "en": "RSS Reader"
+    },
+    "description":{
+      "en":"Simple RSS Reader",
+      "nl":"Simpel RSS lezer"  
+    },
+    "category":[
+        "internet"
+    ],
+    "dependencies":{
+        "request":"*"
+    },
+    
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Jeroen Somhorst",
+        "email": "j.somhorst@gmail.com"
+    },
+    "permissions": [
+        "homey:manager:speech-output"
+    ],
+    "flow":{
+        "actions":[
+            {
+                "id":"read_feed",
+                "title":{
+                    "en":"Read RSS feed titles",
+                    "nl":"Lees RSS feed titels voor"
+                },
+                "args":[{
+                    "name":"url",
+                    "type":"text",
+                    "placeholder":{
+                        "en":"RSS Address",
+                        "nl":"RSS Address"
+                    }
+                },
+                {
+                    "name":"title",
+                    "type":"text",
+                    "placeholder":{
+                        "en":"RSS Feed title",
+                        "nl":"RSS Feed titel"
+                    }
+                }]
+            }
+            
+        ]
+    }
+}
