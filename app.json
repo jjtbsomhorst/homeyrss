@@ -7,13 +7,16 @@
       "en":"Simple RSS Reader",
       "nl":"Simpel RSS lezer"  
     },
+    "images":{
+        "large":"./assets/images/large.jpeg",
+        "small":"./assets/images/small.jpeg"
+    },
     "category":[
         "internet"
     ],
     "dependencies":{
         "request":"*"
     },
-    
     "version": "0.0.1",
     "compatibility": "0.x || 1.x",
     "author": {
