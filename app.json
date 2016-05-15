@@ -8,8 +8,8 @@
       "nl":"Simpel RSS lezer"  
     },
     "images":{
-        "large":"./assets/images/large.jpeg",
-        "small":"./assets/images/small.jpeg"
+        "large":"./assets/images/large.jpg",
+        "small":"./assets/images/small.jpg"
     },
     "category":[
         "internet"
