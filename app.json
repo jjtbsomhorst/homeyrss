@@ -43,12 +43,36 @@
                     }
                 },
                 {
-                    "name":"title",
-                    "type":"text",
+                    "name":"whattoread",
+                    "type":"dropdown",
                     "placeholder":{
-                        "en":"RSS Feed title",
-                        "nl":"RSS Feed titel"
-                    }
+                        "en":"What do you want to hear",
+                        "nl":"Wat wil je horen?"
+                    },
+                    "values":[
+                        {
+                            "id":"1",
+                            "label":{
+                                "en":"Title",
+                                "nl":"Titel"
+                            }
+                        },
+                        {
+                            "id":"2",
+                            "label":{
+                                "en":"Description",
+                                "nl":"Omschrijving"
+                            }
+                        },
+                        {
+                            "id":"3",
+                            "label":{
+                                "en":"Title and description",
+                                "nl":"Titel en omschrijving"
+                            }
+                        }
+                    ]
+                    
                 }]
             }
             

@@ -11,10 +11,10 @@ function init() {
 
 function readFeed(callback,args){
 	Homey.log('Start reading from');
-	Homey.log(args.url);
-	Homey.log(args.title);
+	Homey.log(args);
 	var args = args;
 	var c= callback;
+	
 	feed(args.url,function(err,articles){
 		Homey.log('Done parsing feed');	
 		if(err){
@@ -24,10 +24,18 @@ function readFeed(callback,args){
 		}else{
 			var articles = articles.slice(0,10);
 			Homey.log('Done parsing feed');
-			var mgr = Homey.manager('speech-output');
-			Homey.manager('speech-output').say(__('readarticles_start',{'rsstitle':args.title}));
+			
+			Homey.manager('speech-output').say(__('readarticles_start',{'rsstitle':articles[0].feed.name}));
 			articles.forEach(function(a){
-				Homey.manager('speech-output').say(a.title);
+				Homey.log(a);
+				if(args.whattoread == '1'){
+					Homey.manager('speech-output').say(a.title);
+				}else if(args.whattoread == '2'){
+					Homey.manager('speech-output').say(a.content);
+				}else{
+					Homey.manager('speech-output').say(a.title);
+					Homey.manager('speech-output').say(a.content);
+				}			
 			});
 			c(null,true);
 		}

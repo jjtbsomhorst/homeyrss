@@ -13,5 +13,9 @@ Reads the first 10 RSS feed titles from the given rss feed.
 
 ## Changelog
 
+0.0.2 
+Removed Title argument for action. Title is now read from the feed itself.
+Changed action. You can now specify what homey will read for you. Title, Description or both
+
 0.0.1 ----
 * Initial release
