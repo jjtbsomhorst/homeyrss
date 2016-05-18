@@ -4,7 +4,7 @@ This is a simple feed reader for Homey. It features actions that
 can be used in flows. Currently it is only possible to let Homey say first 10 articles from a feed. 
 
 ## Release information
-current version: 0.0.1
+current version: 0.0.2
 
 ## Actions
 
