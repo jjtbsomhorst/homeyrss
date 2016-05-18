@@ -22,10 +22,14 @@ function readFeed(callback,args){
 			Homey.log(err);
 			c(err,false);
 		}else{
-			var articles = articles.slice(0,10);
-			Homey.log('Done parsing feed');
+			var articles = articles;
+			if(args.articlecount <= articles.length){
+				articles = articles.slice(args.articlecount);
+			}
 			
-			Homey.manager('speech-output').say(__('readarticles_start',{'rsstitle':articles[0].feed.name}));
+			
+			
+			Homey.manager('speech-output').say(__('readarticles_start',{'rsstitle':articles[0].feed.name,'articlecount':args.articlecount}));
 			articles.forEach(function(a){
 				Homey.log(a);
 				if(args.whattoread == '1'){
