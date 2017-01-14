@@ -17,7 +17,7 @@
     "dependencies":{
         "request":"*"
     },
-    "version": "0.0.1",
+    "version": "1.0.0",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Jeroen Somhorst",
