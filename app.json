@@ -29,6 +29,64 @@
     "flow":{
         "actions":[
             {
+                "id": "read_specific_item",
+                "title":{
+                    "en": "Read a specific Item from RSS Feed",
+                    "nl": "Lees een specifiec item uit een RSS feed voor"
+                },
+                "args":[
+                    {
+                    "name":"url",
+                    "type":"text",
+                    "placeholder":{
+                        "en":"RSS Address",
+                        "nl":"RSS Address"
+                    }
+                    },
+                    {
+                    "name":"articlenumber",
+                    "type":"number",
+                    "min": 0,
+                    "max": 99,
+                    "placeholder":{
+                        "en":"Index of the item to read",
+                        "nl":"Index van het artikel dat voorgelezen wordt."
+                    }
+                },
+                {
+                    "name":"whattoread",
+                    "type":"dropdown",
+                    "placeholder":{
+                        "en":"What do you want to hear",
+                        "nl":"Wat wil je horen?"
+                    },
+                    "values":[
+                        {
+                            "id":"1",
+                            "label":{
+                                "en":"Title",
+                                "nl":"Titel"
+                            }
+                        },
+                        {
+                            "id":"2",
+                            "label":{
+                                "en":"Description",
+                                "nl":"Omschrijving"
+                            }
+                        },
+                        {
+                            "id":"3",
+                            "label":{
+                                "en":"Title and description",
+                                "nl":"Titel en omschrijving"
+                            }
+                        }
+                    ]
+                }]
+            },
+
+            {
                 "id":"read_feed",
                 "title":{
                     "en":"Read RSS feed titles",

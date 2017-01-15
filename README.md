@@ -14,7 +14,14 @@ If you like the app. Please consider a donation
 Read RSS Titles:
 Reads the complete list or the first x amount of items from the RSS Feed specified. You can now specify which data should be spoken. Choose from title, description or both!
 
+Read a specific Item from RSS Feed:
+Reads a specific item in a RSS Feed. The index is 0 based. So if you want to hear the first item you specify 0. 
+
 ## Changelog
+
+1.0.2
+* Fixed a bug that would cause the app to crash after a while
+* Added a new feature. Now you can specificy which item it should speak.
 
 1.0.1
 * Fixed a bug that would cause the app to read the rss feed only once.
