@@ -12,8 +12,6 @@ class flowProcessor{
 
     init(){
         Homey.log('Flowprocessor init');
-
-        this.parser = new FeedMe(true);
         this.speechoutput = Homey.manager('speech-output');
         this.flowManager = Homey.manager('flow');
         this.flowManager.on(ACTION_READ_FEED,this.onReadRssFeed.bind(this));
@@ -23,6 +21,10 @@ class flowProcessor{
     }
 
     onReadRssFeed(cb,args){
+        if(this.parser == null){
+             this.parser = new FeedMe(true);
+        }
+
         this.parser.on('end',this.onFeedParsed.bind(this,cb,args));
        http.get(args.url,function(res){
            res.pipe(this.parser);
@@ -38,14 +40,23 @@ class flowProcessor{
         if(items.length > args.articlecount){
             items = items.slice(0,args.articlecount);
         }
+        var itemlenght = items.length;
 
-        console.log(items.length);
-        for(var i = 0; i < items.length;i++){
-            this.readEntry(items,items[i],i, cb,args);
+        for(var i = 0; i < itemlenght;i++){
+            var item = items[i];
+            
+            this.readEntry(null,item,i,cb,args);
+
+
+            if(i == itemlenght-1){
+                items = null;
+                feedContent = null;
+                item = null;
+            }
         }
        
        cb(null,true);
-       this.parser = new FeedMe(true);
+       this.parser = null;
     }
 
     readEntry(collection, item, index, callback, args){
@@ -60,7 +71,7 @@ class flowProcessor{
                     this.speechoutput.say(item.description);
                     break;
         }
-
+        item = null;
     }
 }
 
