@@ -43,7 +43,9 @@ class flowProcessor{
             var item = items[i];
 
             this.readEntry(null,item,i,cb,args);
-
+                if(i == itemlenght){
+                    parser = null;
+                }
             }
 
             cb(null,true);
