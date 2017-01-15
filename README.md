@@ -16,6 +16,9 @@ Reads the complete list or the first x amount of items from the RSS Feed specifi
 
 ## Changelog
 
+1.0.1
+* Fixed a bug that would cause the app to read the rss feed only once.
+
 1.0.0
 * Complete rewrite of this module. This leads to smaller file size, lower memory usage
 and new features!

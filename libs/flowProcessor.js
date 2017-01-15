@@ -43,6 +43,9 @@ class flowProcessor{
         for(var i = 0; i < items.length;i++){
             this.readEntry(items,items[i],i, cb,args);
         }
+       
+       cb(null,true);
+       this.parser = new FeedMe(true);
     }
 
     readEntry(collection, item, index, callback, args){
@@ -57,9 +60,7 @@ class flowProcessor{
                     this.speechoutput.say(item.description);
                     break;
         }
-        if(collection.length == index){
-            cb(null,true);
-        }
+
     }
 }
 
