@@ -1,7 +1,6 @@
 # Homey RSS Feed reader
 
-This is a simple feed reader for Homey. It features actions that 
-can be used in flows. Currently it is only possible to let Homey say first 10 articles from a feed. 
+This is a simple feed reader for Homey.
 
 ## Donate
 
@@ -18,6 +17,9 @@ Read a specific Item from RSS Feed:
 Reads a specific item in a RSS Feed. The index is 0 based. So if you want to hear the first item you specify 0. 
 
 ## Changelog
+
+1.0.3
+* Fixed a bug that would cause the app to crash when using a https:// url instead of http://
 
 1.0.2
 * Fixed a bug that would cause the app to crash after a while

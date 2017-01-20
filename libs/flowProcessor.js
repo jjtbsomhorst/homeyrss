@@ -2,6 +2,7 @@
 
 var FeedMe = require('feedme');
 var http = require('http');
+var https = require('https');
 
 const ACTION_READ_FEED = 'action.read_feed';
 const ACTION_READ_ITEM = 'action.read_specific_item';
@@ -23,18 +24,46 @@ class flowProcessor{
         var parser = new FeedMe(true);
         
         parser.on('end',this.onFeedParsed.bind(this,cb,parser,args.whattoread,args.articlenumber,args.articlenumber+1));
-       http.get(args.url,function(res){
-           res.pipe(parser);
-       }.bind(this));
+
+        if(args.hasOwnProperty('url') && args.url != ""){
+            var urlLwr = args.url.toLowerCase();
+            if(urlLwr.indexOf('http://') == 0){
+             http.get(args.url,function(res){
+                res.pipe(parser);
+             }.bind(this));
+
+            }else if(urlLwr.indexOf('https://') == 0){
+              https.get(args.url,function(res){
+                res.pipe(parser);
+             }.bind(this));
+            }
+        }
     }
 
     onReadRssFeed(cb,args){
         var parser = new FeedMe(true);
         
         parser.on('end',this.onFeedParsed.bind(this,cb,parser,args.whattoread,0,args.articlecount));
+
+        if(args.hasOwnProperty('url') && args.url != ""){
+            var urlLwr = args.url.toLowerCase();
+            if(urlLwr.indexOf('http://') == 0){
+             http.get(args.url,function(res){
+                res.pipe(parser);
+             }.bind(this));
+
+            }else if(urlLwr.indexOf('https://') == 0){
+              https.get(args.url,function(res){
+                res.pipe(parser);
+             }.bind(this));
+            }
+        }
+
+        /*
        http.get(args.url,function(res){
            res.pipe(parser);
        }.bind(this));
+       */
     }
 
     onFeedParsed(cb,parser,whattoread,startIndex,endIndex){
